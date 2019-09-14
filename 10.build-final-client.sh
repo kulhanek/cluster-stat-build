@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PREFIX=/opt/wolf-stat-server/2.0
+PREFIX=/opt/wolf-stat-server/3.0
 
 set -o pipefail
 
