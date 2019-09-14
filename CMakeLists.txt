@@ -19,6 +19,7 @@ SET(DEVELOPMENT_ROOT "${CMAKE_BINARY_DIR}/src")
 
 # extra options ----------------------------------
 SET(TRY_QT_LIB          OFF  CACHE INTERNAL "QT is not neccessary" FORCE)
+SET(STAT_TARGET "both"  CACHE STRING "targets: server, client, both")
 
 # ==============================================================================
 # libraries --------------------------------------------------------------------
@@ -73,5 +74,14 @@ ADD_SUBDIRECTORY(src/projects/wolf-stat-server/3.0)
 # ==============================================================================
 
 ADD_DEPENDENCIES(w3tk_shared hipoly_shared)
-ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
+
+IF( ${STAT_TARGET} STREQUAL "server" )
+    ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
+ELSEIF(${STAT_TARGET} STREQUAL "client" )
+    ADD_DEPENDENCIES(wolf-stat-client w3tk_shared hipoly_shared)
+ELSE()
+    ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
+    ADD_DEPENDENCIES(wolf-stat-client w3tk_shared hipoly_shared)
+ENDIF()
+
 
