@@ -1,5 +1,5 @@
 # ==============================================================================
-# AMS - Advanced Module System
+# wolf-stat-server
 # ==============================================================================
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
@@ -66,12 +66,12 @@ SET(CMAKE_BUILD_TYPE Release)
 # projects ---------------------------------------
 ADD_SUBDIRECTORY(src/projects/hipoly/1.0)
 ADD_SUBDIRECTORY(src/projects/w3tk/1.0)
-ADD_SUBDIRECTORY(src/projects/ams/8.0)
+ADD_SUBDIRECTORY(src/projects/wolf-stat-server/3.0)
 
 # ==============================================================================
 # inter-project dependencies  --------------------------------------------------
 # ==============================================================================
 
 ADD_DEPENDENCIES(w3tk_shared hipoly_shared)
-ADD_DEPENDENCIES(ams_shared w3tk_shared hipoly_shared)
+ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
 
