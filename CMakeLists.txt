@@ -1,9 +1,11 @@
 # ==============================================================================
-# wolf-stat-server
+# cluster-stat
 # ==============================================================================
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10 FATAL_ERROR)
 #SET(CMAKE_VERBOSE_MAKEFILE ON)
+
+PROJECT(ClusterStat)
 
 # ==============================================================================
 # project setup ----------------------------------------------------------------
@@ -67,7 +69,7 @@ SET(CMAKE_BUILD_TYPE Release)
 # projects ---------------------------------------
 ADD_SUBDIRECTORY(src/projects/hipoly/1.0)
 ADD_SUBDIRECTORY(src/projects/w3tk/1.0)
-ADD_SUBDIRECTORY(src/projects/wolf-stat-server/3.0)
+ADD_SUBDIRECTORY(src/projects/cluster-stat/3.0)
 
 # ==============================================================================
 # inter-project dependencies  --------------------------------------------------
@@ -76,12 +78,12 @@ ADD_SUBDIRECTORY(src/projects/wolf-stat-server/3.0)
 ADD_DEPENDENCIES(w3tk_shared hipoly_shared)
 
 IF( ${STAT_TARGET} STREQUAL "server" )
-    ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
+    ADD_DEPENDENCIES(cluster-stat-server w3tk_shared hipoly_shared)
 ELSEIF(${STAT_TARGET} STREQUAL "client" )
-    ADD_DEPENDENCIES(wolf-stat-client w3tk_shared hipoly_shared)
+    ADD_DEPENDENCIES(cluster-stat-client w3tk_shared hipoly_shared)
 ELSE()
-    ADD_DEPENDENCIES(wolf-stat-server w3tk_shared hipoly_shared)
-    ADD_DEPENDENCIES(wolf-stat-client w3tk_shared hipoly_shared)
+    ADD_DEPENDENCIES(cluster-stat-server w3tk_shared hipoly_shared)
+    ADD_DEPENDENCIES(cluster-stat-client w3tk_shared hipoly_shared)
 ENDIF()
 
 
