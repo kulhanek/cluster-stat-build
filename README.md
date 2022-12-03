@@ -6,7 +6,7 @@ Utilities for testing and building of the [cluster-stat](https://github.com/kulh
 ### Production Build
 ```bash
 $ git clone --recursive https://github.com/kulhanek/cluster-stat-build.git
-$ cd wolf-stat-server-build
+$ cd cluster-stat-server-build
 $ ./build-utils/00.init-links.sh
 $ ./01.pull-code.sh
 $ ./10.build-final-XXX

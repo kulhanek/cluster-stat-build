@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PREFIX=/opt/wolf-stat-client/3.0
-DESDIR=/export/packages/22.04/src/packages/wolf/ncbr-wolf-stat-client
+PREFIX=/opt/node-stat-client/3.0
+DESDIR=/export/packages/22.04/src/packages/rdsk/ncbr-node-stat-client
 
 set -o pipefail
 
