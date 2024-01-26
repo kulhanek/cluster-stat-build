@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PREFIX=/opt/node-stat-client/3.0
-DESDIR=/export/packages/22.04/src/packages/rdsk/ncbr-node-stat-client
+DESDIR=/local/packages/22.04/src/packages/rdsk/ncbr-node-stat-client
 
 set -o pipefail
 
@@ -33,3 +33,10 @@ make -j "$N" 2>&1 | tee make.log || exit 1
 make DESTDIR=$DESDIR install 2>&1 | tee install.log || exit 1
 
 echo ""
+# gen new control file
+VERSION="`cat \"$DESDIR/DEBIAN/dpkgver\" 2>/dev/null`"
+((VERSION++))
+sed -e "s/VERSION/$VERSION/g" < "$DESDIR/DEBIAN/control.tmp" > "$DESDIR/DEBIAN/control"
+echo "$VERSION" > "$DESDIR/DEBIAN/dpkgver"
+
+
