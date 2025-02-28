@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PREFIX=/opt/node-stat-server/3.0
-DESDIR=/local/packages/22.04/src/packages/rdsk/ncbr-node-stat-server
+DESDIR=/local/packages/24.04/src/packages/rdsk/ncbr-node-stat-server
 
 set -o pipefail
 
